@@ -8,13 +8,14 @@
 // @match       https://www.bing.com/*
 // @match       https://cn.bing.com/search?q=
 // @match       https://cn.bing.com/chrome/newtab
-// @version     0.0.0
+// @version     0.0.1
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
 // @brief 本脚本原作者为haigirl@https://greasyfork.org/zh-CN/users/805725-haigirl，只是练习使用vscode开发脚本，并试图增加功能
 // 匿名函数自执行，用于修改Bing首页的布局和功能
 (function() {
+  console.log("Webhook_test");
 
   // 使用定时器检测页面加载完成
   var timeFunction = window.setInterval(function(){loadEnd()},1);
