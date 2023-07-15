@@ -1,8 +1,8 @@
 // ==UserScript==
-// @brief       ±¾½Å±¾Ô­×÷ÕßÎªhaigirl@https://greasyfork.org/zh-CN/users/805725-haigirl£¬Ö»ÊÇÁ·Ï°Ê¹ÓÃvscode¿ª·¢½Å±¾£¬²¢ÊÔÍ¼Ôö¼Ó¹¦ÄÜ
-// @name        BingÊ×Ò³ÓÅ»¯-developing
-// @namespace   BingÊ×Ò³ÓÅ»¯
-// @description BingÊ×Ò³ÓÅ»¯£¬È¥³ıbingÊ×Ò³µÄ¹úÄÚ°æºÍ¹ú¼Ê°æÇĞ»»±êÇ©£¬È¥³ıµ×²¿µÄ°æÈ¨ĞÅÏ¢ºÍ¹ã¸æÁ´½Ó£¬±£ÁôÊ×Ò³±ÚÖ½ÇĞ»»°´Å¥¡£
+
+// @name        Bingé¦–é¡µä¼˜åŒ–-developing
+// @namespace   Bingé¦–é¡µä¼˜åŒ–
+// @description Bingé¦–é¡µä¼˜åŒ–ï¼Œå»é™¤bingé¦–é¡µçš„å›½å†…ç‰ˆå’Œå›½é™…ç‰ˆåˆ‡æ¢æ ‡ç­¾ï¼Œå»é™¤åº•éƒ¨çš„ç‰ˆæƒä¿¡æ¯å’Œå¹¿å‘Šé“¾æ¥ï¼Œä¿ç•™é¦–é¡µå£çº¸åˆ‡æ¢æŒ‰é’®ã€‚
 // @author      haigirl
 // @icon        https://favicon.yandex.net/favicon/v2/bing.com
 // @match       *://cn.bing.com/*
@@ -13,32 +13,32 @@
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
-//¸ü¸ÄÎªGBK±àÂë
-// ÄäÃûº¯Êı×ÔÖ´ĞĞ£¬ÓÃÓÚĞŞ¸ÄBingÊ×Ò³µÄ²¼¾ÖºÍ¹¦ÄÜ
+// æœ¬è„šæœ¬åŸä½œè€…ä¸ºhaigirl@https://greasyfork.org/zh-CN/users/805725-haigirlï¼Œåªæ˜¯ç»ƒä¹ ä½¿ç”¨vscodeå¼€å‘è„šæœ¬ï¼Œå¹¶è¯•å›¾å¢åŠ åŠŸèƒ½
+// åŒ¿åå‡½æ•°è‡ªæ‰§è¡Œï¼Œç”¨äºä¿®æ”¹Bingé¦–é¡µçš„å¸ƒå±€å’ŒåŠŸèƒ½
 (function() {
 
-  // Ê¹ÓÃ¶¨Ê±Æ÷¼ì²âÒ³Ãæ¼ÓÔØÍê³É
+  // ä½¿ç”¨å®šæ—¶å™¨æ£€æµ‹é¡µé¢åŠ è½½å®Œæˆ
   var timeFunction = window.setInterval(function(){loadEnd()},1);
   function loadEnd(){
 
-    // »ñÈ¡ĞèÒª²Ù×÷µÄDOMÔªËØ
-    var footer = document.querySelector('#footer'); // Ò³½Å
-    var searchNav = document.querySelector('#est_switch'); // ËÑË÷ÇĞ»»±êÇ©
-    var searchBox = document.querySelector('.sb_form_q'); // ËÑË÷¿ò
-    var sbox = document.querySelector('.sbox'); // ËÑË÷¿òÈİÆ÷
-    var headline = document.querySelector('#headline'); // Ò³ÃæÍ·²¿
-    var hp_trivia_inner = document.querySelector('.hp_trivia_inner'); // Ê×Ò³Ğ¡ÖªÊ¶
-    var id_rh = document.querySelector('#id_rh'); // ÍÆ¼öËÑË÷
-    var id_qrcode = document.querySelector('#id_qrcode'); // ÊÖ»úÉ¨Âë
-    var sa_ul = document.getElementById('sa_ul'); // ËÑË÷¿òÄÚ²¿ "½ñÈÕÈÈµã"
+    // è·å–éœ€è¦æ“ä½œçš„DOMå…ƒç´ 
+    var footer = document.querySelector('#footer'); // é¡µè„š
+    var searchNav = document.querySelector('#est_switch'); // æœç´¢åˆ‡æ¢æ ‡ç­¾
+    var searchBox = document.querySelector('.sb_form_q'); // æœç´¢æ¡†
+    var sbox = document.querySelector('.sbox'); // æœç´¢æ¡†å®¹å™¨
+    var headline = document.querySelector('#headline'); // é¡µé¢å¤´éƒ¨
+    var hp_trivia_inner = document.querySelector('.hp_trivia_inner'); // é¦–é¡µå°çŸ¥è¯†
+    var id_rh = document.querySelector('#id_rh'); // æ¨èæœç´¢
+    var id_qrcode = document.querySelector('#id_qrcode'); // æ‰‹æœºæ‰«ç 
+    var sa_ul = document.getElementById('sa_ul'); // æœç´¢æ¡†å†…éƒ¨ "ä»Šæ—¥çƒ­ç‚¹"
 
-    // ÁÙÊ±È¥³ıÒ³Ãæ¹ö¶¯Ìõ
+    // ä¸´æ—¶å»é™¤é¡µé¢æ»šåŠ¨æ¡
    if (GetCurrentUrl()=="https://cn.bing.com/chrome/newtab")
    {
-      document.documentElement.style.overflowY = "hidden";//ËÑË÷½á¹û½çÃæ¼ÌĞøËÑË÷ÎŞ¹ö¶¯Ìõ£¬È¥µôµ«»áÔì³ÉÖ÷Ò³Ãæ³öÏÖ¹ö¶¯Ìõ
+      document.documentElement.style.overflowY = "hidden";//æœç´¢ç»“æœç•Œé¢ç»§ç»­æœç´¢æ— æ»šåŠ¨æ¡ï¼Œå»æ‰ä½†ä¼šé€ æˆä¸»é¡µé¢å‡ºç°æ»šåŠ¨æ¡
    }
 
-    // Òş²Ø»òÒÆ³ıĞèÒª²Ù×÷µÄDOMÔªËØ
+    // éšè—æˆ–ç§»é™¤éœ€è¦æ“ä½œçš„DOMå…ƒç´ 
     if (footer){
       hidenDom(footer);
     }
@@ -47,7 +47,7 @@
     }
     if (sbox){
       sbox.style.margin='0';
-      sbox.style.top = "20%"; // ÉèÖÃËÑË÷¿òÎ»ÖÃ
+      sbox.style.top = "20%"; // è®¾ç½®æœç´¢æ¡†ä½ç½®
       sbox.style.left = "30%";
     }
     if (headline){
@@ -63,7 +63,7 @@
       hidenDom(id_qrcode);
     }
 
-    // È¥³ıËÑË÷¿òÄÚ²¿ "½ñÈÕÈÈµã" sa_ulÎªËÑË÷¿òÄÚ²¿ "½ñÈÕÈÈµã"
+    // å»é™¤æœç´¢æ¡†å†…éƒ¨ "ä»Šæ—¥çƒ­ç‚¹" sa_ulä¸ºæœç´¢æ¡†å†…éƒ¨ "ä»Šæ—¥çƒ­ç‚¹"
     if (sa_ul) {
       var sa_ul_child = sa_ul.children;
 
@@ -81,74 +81,74 @@
     }
   }
 
-  // ÒÆ³ıÖ¸¶¨DOMÔªËØ
+  // ç§»é™¤æŒ‡å®šDOMå…ƒç´ 
   function removeDom(dom){
     if(dom){
       dom.remove();
     }
   }
 
-  // Òş²ØÖ¸¶¨DOMÔªËØ
+  // éšè—æŒ‡å®šDOMå…ƒç´ 
   function hidenDom(dom){
     if(dom){
       dom.style.display = 'none';
     }
   }
 
-     //»ñÈ¡=Ç°µØÖ·
+     //è·å–=å‰åœ°å€
     function GetCurrentUrl(){
-    var loc = window.location.href;//»ñÈ¡È«²¿µØÖ·
-    //var n1 = loc.length;         //µØÖ·µÄ×Ü³¤¶È
-    var n = loc.indexOf("="); //È¡µÃ=ºÅµÄÎ»ÖÃ
-    var url = loc.substr(0, n);//´Ó=ºÅÇ°ÃæµÄÄÚÈİ
+    var loc = window.location.href;//è·å–å…¨éƒ¨åœ°å€
+    //var n1 = loc.length;         //åœ°å€çš„æ€»é•¿åº¦
+    var n = loc.indexOf("="); //å–å¾—=å·çš„ä½ç½®
+    var url = loc.substr(0, n);//ä»=å·å‰é¢çš„å†…å®¹
     //console.log(url);
     return loc;
 }
-  // ĞŞ¸ÄËÑË÷¿òÑùÊ½ºÍ½»»¥
+  // ä¿®æ”¹æœç´¢æ¡†æ ·å¼å’Œäº¤äº’
   function SearchBoxEditor(){
-    var searchbox= document.querySelector('#sb_form_q'); // ËÑË÷¿ò
-    var searchLabel = document.querySelector('#sb_form'); // ËÑË÷¿òÈİÆ÷
+    var searchbox= document.querySelector('#sb_form_q'); // æœç´¢æ¡†
+    var searchLabel = document.querySelector('#sb_form'); // æœç´¢æ¡†å®¹å™¨
 
-    searchLabel.style.backgroundColor = "#FFFFFF00"; // ÉèÖÃËÑË÷¿òÈİÆ÷±³¾°É«
+    searchLabel.style.backgroundColor = "#FFFFFF00"; // è®¾ç½®æœç´¢æ¡†å®¹å™¨èƒŒæ™¯è‰²
 
-    // ËÑË÷¿ò»ñÈ¡½¹µãÊ±µÄÑùÊ½
+    // æœç´¢æ¡†è·å–ç„¦ç‚¹æ—¶çš„æ ·å¼
     function SearchBoxOnFocus(){
       searchLabel.style.backgroundColor = "#FFFFFF";
     }
 
-    // ËÑË÷¿òÊ§È¥½¹µãÊ±µÄÑùÊ½
+    // æœç´¢æ¡†å¤±å»ç„¦ç‚¹æ—¶çš„æ ·å¼
     function SearchBoxOnBlur(){
       searchLabel.style.backgroundColor = "#FFFFFF00";
     }
 
-    // Êó±ê»¬¹ıËÑË÷¿òÊ±µÄÑùÊ½
+    // é¼ æ ‡æ»‘è¿‡æœç´¢æ¡†æ—¶çš„æ ·å¼
     function SearchBoxOnMouseOver(){
       if(document.activeElement.id == "sb_form_q"){
-        // ËÑË÷¿òÈÔÈ»´¦ÓÚ½¹µã×´Ì¬
+        // æœç´¢æ¡†ä»ç„¶å¤„äºç„¦ç‚¹çŠ¶æ€
         searchLabel.style.backgroundColor = "#FFFFFF";
       }else{
         searchLabel.style.backgroundColor = "#FFFFFF00";
       }
     }
 
-    // Êó±êÀë¿ªËÑË÷¿òÊ±µÄÑùÊ½
+    // é¼ æ ‡ç¦»å¼€æœç´¢æ¡†æ—¶çš„æ ·å¼
     function SearchBoxOnMouseLeave(){
       if(document.activeElement.id == "sb_form_q"){
-        // ËÑË÷¿òÈÔÈ»´¦ÓÚ½¹µã×´Ì¬
+        // æœç´¢æ¡†ä»ç„¶å¤„äºç„¦ç‚¹çŠ¶æ€
       }else{
         searchLabel.style.backgroundColor = "#FFFFFF00";
       }
     }
 
-    // °ó¶¨ÊÂ¼şµ½ËÑË÷¿òºÍËÑË÷¿òÈİÆ÷
-    searchbox.onblur = SearchBoxOnBlur; // Ê§È¥½¹µã
-    searchbox.onfocus = SearchBoxOnFocus; // »ñµÃ½¹µã
-    searchbox.onclick = SearchBoxOnFocus; // µã»÷ÊÂ¼ş
-    searchLabel.onclick = SearchBoxOnFocus; // µã»÷ÊÂ¼ş
-    searchLabel.onmouseover = SearchBoxOnMouseOver; // Êó±ê»¬¹ı
-    searchLabel.onmouseleave = SearchBoxOnMouseLeave; // Êó±êÀë¿ª = Ê§È¥½¹µã
+    // ç»‘å®šäº‹ä»¶åˆ°æœç´¢æ¡†å’Œæœç´¢æ¡†å®¹å™¨
+    searchbox.onblur = SearchBoxOnBlur; // å¤±å»ç„¦ç‚¹
+    searchbox.onfocus = SearchBoxOnFocus; // è·å¾—ç„¦ç‚¹
+    searchbox.onclick = SearchBoxOnFocus; // ç‚¹å‡»äº‹ä»¶
+    searchLabel.onclick = SearchBoxOnFocus; // ç‚¹å‡»äº‹ä»¶
+    searchLabel.onmouseover = SearchBoxOnMouseOver; // é¼ æ ‡æ»‘è¿‡
+    searchLabel.onmouseleave = SearchBoxOnMouseLeave; // é¼ æ ‡ç¦»å¼€ = å¤±å»ç„¦ç‚¹
   }
 
-  window.setTimeout(SearchBoxEditor, 10); // ÑÓ³ÙÖ´ĞĞËÑË÷¿òĞŞ¸Äº¯Êı
+  window.setTimeout(SearchBoxEditor, 10); // å»¶è¿Ÿæ‰§è¡Œæœç´¢æ¡†ä¿®æ”¹å‡½æ•°
 
 })();
