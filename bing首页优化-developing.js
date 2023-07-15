@@ -1,5 +1,4 @@
 // ==UserScript==
-
 // @name        Bing首页优化-developing
 // @namespace   Bing首页优化
 // @description Bing首页优化，去除bing首页的国内版和国际版切换标签，去除底部的版权信息和广告链接，保留首页壁纸切换按钮。
@@ -13,7 +12,7 @@
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
-// 本脚本原作者为haigirl@https://greasyfork.org/zh-CN/users/805725-haigirl，只是练习使用vscode开发脚本，并试图增加功能
+// @brief 本脚本原作者为haigirl@https://greasyfork.org/zh-CN/users/805725-haigirl，只是练习使用vscode开发脚本，并试图增加功能
 // 匿名函数自执行，用于修改Bing首页的布局和功能
 (function() {
 
