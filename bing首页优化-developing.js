@@ -13,7 +13,7 @@
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
-
+//更改为GBK编码
 // 匿名函数自执行，用于修改Bing首页的布局和功能
 (function() {
 
