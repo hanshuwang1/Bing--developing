@@ -8,7 +8,7 @@
 // @match       https://www.bing.com/*
 // @match       https://cn.bing.com/search?q=
 // @match       https://cn.bing.com/chrome/newtab
-// @version     0.0.1
+// @version     0.0.2
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
