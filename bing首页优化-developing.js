@@ -110,7 +110,7 @@
     var searchbox= document.querySelector('#sb_form_q'); // 搜索框
     var searchLabel = document.querySelector('#sb_form'); // 搜索框容器
 
-    searchLabel.style.backgroundColor = "#FFFFFF00"; // 设置搜索框容器背景色
+    //searchLabel.style.backgroundColor = "#FFFFFF00"; // 设置搜索框容器背景色
 
     // 搜索框获取焦点时的样式
     function SearchBoxOnFocus(){
