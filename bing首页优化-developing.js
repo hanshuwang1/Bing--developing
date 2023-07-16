@@ -8,7 +8,7 @@
 // @match       https://www.bing.com/*
 // @match       https://cn.bing.com/search?q=
 // @match       https://cn.bing.com/chrome/newtab
-// @version     0.0.2
+// @version     0.0.3
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
@@ -41,7 +41,7 @@
 
     // 隐藏或移除需要操作的DOM元素
     if (footer){
-      removeDom(footer);
+      hidenDom(footer);
     }
     if (searchNav){
       hidenDom(searchNav);
@@ -106,50 +106,50 @@
     return loc;
 }
   // 修改搜索框样式和交互
-  function SearchBoxEditor(){
-    var searchbox= document.querySelector('#sb_form_q'); // 搜索框
-    var searchLabel = document.querySelector('#sb_form'); // 搜索框容器
+  // function SearchBoxEditor(){
+  //   var searchbox= document.querySelector('#sb_form_q'); // 搜索框
+  //   var searchLabel = document.querySelector('#sb_form'); // 搜索框容器
 
-    //searchLabel.style.backgroundColor = "#FFFFFF00"; // 设置搜索框容器背景色
+  //   searchLabel.style.backgroundColor = "#FFFFFF00"; // 设置搜索框容器背景色
 
-    // 搜索框获取焦点时的样式
-    function SearchBoxOnFocus(){
-      searchLabel.style.backgroundColor = "#FFFFFF";
-    }
+  //   // 搜索框获取焦点时的样式
+  //   function SearchBoxOnFocus(){
+  //     searchLabel.style.backgroundColor = "#FFFFFF";
+  //   }
 
-    // 搜索框失去焦点时的样式
-    function SearchBoxOnBlur(){
-      searchLabel.style.backgroundColor = "#FFFFFF00";
-    }
+  //   // 搜索框失去焦点时的样式
+  //   function SearchBoxOnBlur(){
+  //     searchLabel.style.backgroundColor = "#FFFFFF00";
+  //   }
 
-    // 鼠标滑过搜索框时的样式
-    function SearchBoxOnMouseOver(){
-      if(document.activeElement.id == "sb_form_q"){
-        // 搜索框仍然处于焦点状态
-        searchLabel.style.backgroundColor = "#FFFFFF";
-      }else{
-        searchLabel.style.backgroundColor = "#FFFFFF00";
-      }
-    }
+  //   // 鼠标滑过搜索框时的样式
+  //   function SearchBoxOnMouseOver(){
+  //     if(document.activeElement.id == "sb_form_q"){
+  //       // 搜索框仍然处于焦点状态
+  //       searchLabel.style.backgroundColor = "#FFFFFF";
+  //     }else{
+  //       searchLabel.style.backgroundColor = "#FFFFFF00";
+  //     }
+  //   }
 
-    // 鼠标离开搜索框时的样式
-    function SearchBoxOnMouseLeave(){
-      if(document.activeElement.id == "sb_form_q"){
-        // 搜索框仍然处于焦点状态
-      }else{
-        searchLabel.style.backgroundColor = "#FFFFFF00";
-      }
-    }
+  //   // 鼠标离开搜索框时的样式
+  //   function SearchBoxOnMouseLeave(){
+  //     if(document.activeElement.id == "sb_form_q"){
+  //       // 搜索框仍然处于焦点状态
+  //     }else{
+  //       searchLabel.style.backgroundColor = "#FFFFFF00";
+  //     }
+  //   }
 
-    // 绑定事件到搜索框和搜索框容器
-    searchbox.onblur = SearchBoxOnBlur; // 失去焦点
-    searchbox.onfocus = SearchBoxOnFocus; // 获得焦点
-    searchbox.onclick = SearchBoxOnFocus; // 点击事件
-    searchLabel.onclick = SearchBoxOnFocus; // 点击事件
-    searchLabel.onmouseover = SearchBoxOnMouseOver; // 鼠标滑过
-    searchLabel.onmouseleave = SearchBoxOnMouseLeave; // 鼠标离开 = 失去焦点
-  }
+  //   // 绑定事件到搜索框和搜索框容器
+  //   searchbox.onblur = SearchBoxOnBlur; // 失去焦点
+  //   searchbox.onfocus = SearchBoxOnFocus; // 获得焦点
+  //   searchbox.onclick = SearchBoxOnFocus; // 点击事件
+  //   searchLabel.onclick = SearchBoxOnFocus; // 点击事件
+  //   searchLabel.onmouseover = SearchBoxOnMouseOver; // 鼠标滑过
+  //   searchLabel.onmouseleave = SearchBoxOnMouseLeave; // 鼠标离开 = 失去焦点
+  // }
 
-  window.setTimeout(SearchBoxEditor, 10); // 延迟执行搜索框修改函数
+  // window.setTimeout(SearchBoxEditor, 10); // 延迟执行搜索框修改函数
 
 })();
