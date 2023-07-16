@@ -15,14 +15,15 @@
 // @brief 本脚本原作者为haigirl@https://greasyfork.org/zh-CN/users/805725-haigirl，只是练习使用vscode开发脚本，并试图增加功能
 // 匿名函数自执行，用于修改Bing首页的布局和功能
 (function() {
-  console.log("Webhook_test");
+  //console.log("Webhook_test");
 
   // 使用定时器检测页面加载完成
   var timeFunction = window.setInterval(function(){loadEnd()},1);
   function loadEnd(){
 
     // 获取需要操作的DOM元素
-    var footer = document.querySelector('#footer'); // 页脚
+    var footer = document.querySelector('.vs'); // 页脚 
+    //.通过className获取元素，#通过Id获取
     var searchNav = document.querySelector('#est_switch'); // 搜索切换标签
     var searchBox = document.querySelector('.sb_form_q'); // 搜索框
     var sbox = document.querySelector('.sbox'); // 搜索框容器
@@ -33,14 +34,14 @@
     var sa_ul = document.getElementById('sa_ul'); // 搜索框内部 "今日热点"
 
     // 临时去除页面滚动条
-   if (GetCurrentUrl()=="https://cn.bing.com/chrome/newtab")
-   {
+  if (GetCurrentUrl()=="https://cn.bing.com/chrome/newtab")
+  {
       document.documentElement.style.overflowY = "hidden";//搜索结果界面继续搜索无滚动条，去掉但会造成主页面出现滚动条
-   }
+  }
 
     // 隐藏或移除需要操作的DOM元素
     if (footer){
-      hidenDom(footer);
+      removeDom(footer);
     }
     if (searchNav){
       hidenDom(searchNav);
