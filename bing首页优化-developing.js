@@ -8,7 +8,7 @@
 // @match       https://www.bing.com/*
 // @match       https://cn.bing.com/search?q=
 // @match       https://cn.bing.com/chrome/newtab
-// @version     0.0.3
+// @version     0.0.4
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
@@ -32,6 +32,7 @@
     var id_rh = document.querySelector('#id_rh'); // 推荐搜索
     var id_qrcode = document.querySelector('#id_qrcode'); // 手机扫码
     var sa_ul = document.getElementById('sa_ul'); // 搜索框内部 "今日热点"
+    var qrcode_popup = document.getElementById('id_qrcode_popup_positioner'); //弹出的二维码
 
     // 临时去除页面滚动条
   if (GetCurrentUrl()=="https://cn.bing.com/chrome/newtab")
@@ -42,6 +43,10 @@
     // 隐藏或移除需要操作的DOM元素
     if (footer){
       hidenDom(footer);
+    }
+    if(qrcode_popup)
+    {
+      removeDom(qrcode_popup);
     }
     if (searchNav){
       hidenDom(searchNav);
