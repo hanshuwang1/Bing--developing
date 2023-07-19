@@ -8,7 +8,7 @@
 // @match       https://www.bing.com/*
 // @match       https://cn.bing.com/search?q=
 // @match       https://cn.bing.com/chrome/newtab
-// @version     0.0.4
+// @version     0.0.5
 // @license     GPL-3.0-only
 // ==/UserScript==
 //
@@ -53,7 +53,7 @@
     }
     if (sbox){
       sbox.style.margin='0';
-      sbox.style.top = "20%"; // 设置搜索框位置
+      sbox.style.top = "15%"; // 设置搜索框位置
       sbox.style.left = "30%";
     }
     if (headline){
